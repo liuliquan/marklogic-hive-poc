@@ -152,20 +152,20 @@ docker stop logstash.local
 
 
 
-## Load Kafka Records into MarkLogic
+## Load Kafka Records into MarkLogic/Hive
 
 Run:
 
 ```bash
 docker exec kafka.local /opt/kafka_2.11-0.10.1.0/bin/connect-standalone.sh /config/kafka-connect-standalone.properties /config/kafka-sink.properties
 
-# The connector will consume kafka records and insert into MarkLogic
+# The connector will consume kafka records and insert into MarkLogic/Hive
 # The load will take about 10 minutes.
 ```
 
 
 
-When you see following log which saying the **`position` topic has offset 51441, the `instrument` topic has offset 138872, the `transaction` topics both have offset 1239999**, then the load is finished:
+When you see following log which saying the **`position` topic has offset 51441, the `instrument` topic has offset 138872, the `transaction` topics has offset 1239999**, then the load is finished:
 
 ```properties
 [2018-07-02 11:00:51,449] INFO Flush - Topic position, Partition 0, Offset 51441, Metadata  (kafka.connect.marklogic.sink.MarkLogicSinkTask:112)
