@@ -9,15 +9,10 @@
 			"name": "Count transaction",
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"xquery\": \"(cts:search(fn:doc(), cts:collection-query('transaction')))[position() = 1 to 1]\",\n\t\"sql\": \"select * from instrument limit 1\",\n\t\"format\": \"json\"\n}"
+					"raw": ""
 				},
 				"url": {
 					"raw": "{{queryhost}}/query?sql=select count(*) as count from transaction&format=xml",
@@ -45,15 +40,10 @@
 			"name": "Search transaction sql",
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"xquery\": \"(cts:search(fn:doc(), cts:collection-query('transaction')))[position() = 1 to 1]\",\n\t\"sql\": \"select * from instrument limit 1\",\n\t\"format\": \"json\"\n}"
+					"raw": ""
 				},
 				"url": {
 					"raw": "{{queryhost}}/query?sql=select * from transaction limit 10&format=xml",
@@ -81,15 +71,10 @@
 			"name": "Search transaction sql - json format",
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"xquery\": \"(cts:search(fn:doc(), cts:collection-query('transaction')))[position() = 1 to 1]\",\n\t\"sql\": \"select * from instrument limit 1\",\n\t\"format\": \"json\"\n}"
+					"raw": ""
 				},
 				"url": {
 					"raw": "{{queryhost}}/query?sql=select * from transaction limit 10&format=json",
@@ -117,15 +102,10 @@
 			"name": "Search transaction sql & xquery",
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"xquery\": \"(cts:search(fn:doc(), cts:collection-query('transaction')))[position() = 1 to 1]\",\n\t\"sql\": \"select * from instrument limit 1\",\n\t\"format\": \"json\"\n}"
+					"raw": ""
 				},
 				"url": {
 					"raw": "{{queryhost}}/query?sql=select * from transaction limit 10&format=xml&xquery=(cts%3Asearch(%2F%2C%20cts%3Acollection-query('transaction')))%5Bposition()%20%3D%201%20to%2010%5D",
@@ -157,15 +137,10 @@
 			"name": "Search transaction sql & xquery - json format",
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"xquery\": \"(cts:search(fn:doc(), cts:collection-query('transaction')))[position() = 1 to 1]\",\n\t\"sql\": \"select * from instrument limit 1\",\n\t\"format\": \"json\"\n}"
+					"raw": ""
 				},
 				"url": {
 					"raw": "{{queryhost}}/query?sql=select * from transaction limit 10&format=json&xquery=(cts%3Asearch(%2F%2C%20cts%3Acollection-query('transaction')))%5Bposition()%20%3D%201%20to%2010%5D",
@@ -197,15 +172,10 @@
 			"name": "Count position",
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"xquery\": \"(cts:search(fn:doc(), cts:collection-query('transaction')))[position() = 1 to 1]\",\n\t\"sql\": \"select * from instrument limit 1\",\n\t\"format\": \"json\"\n}"
+					"raw": ""
 				},
 				"url": {
 					"raw": "{{queryhost}}/query?sql=select count(*) as count from position&format=xml",
@@ -233,15 +203,10 @@
 			"name": "Search position sql",
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"xquery\": \"(cts:search(fn:doc(), cts:collection-query('transaction')))[position() = 1 to 1]\",\n\t\"sql\": \"select * from instrument limit 1\",\n\t\"format\": \"json\"\n}"
+					"raw": ""
 				},
 				"url": {
 					"raw": "{{queryhost}}/query?sql=select * from position limit 10&format=xml",
@@ -269,15 +234,10 @@
 			"name": "Search position sql - json format",
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"xquery\": \"(cts:search(fn:doc(), cts:collection-query('transaction')))[position() = 1 to 1]\",\n\t\"sql\": \"select * from instrument limit 1\",\n\t\"format\": \"json\"\n}"
+					"raw": ""
 				},
 				"url": {
 					"raw": "{{queryhost}}/query?sql=select * from position limit 10&format=json",
@@ -305,15 +265,10 @@
 			"name": "Search position sql & xquery",
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"xquery\": \"(cts:search(fn:doc(), cts:collection-query('transaction')))[position() = 1 to 1]\",\n\t\"sql\": \"select * from instrument limit 1\",\n\t\"format\": \"json\"\n}"
+					"raw": ""
 				},
 				"url": {
 					"raw": "{{queryhost}}/query?sql=select * from position limit 10&format=xml&xquery=(cts%3Asearch(%2F%2C%20cts%3Acollection-query('position')))%5Bposition()%20%3D%201%20to%2010%5D",
@@ -345,15 +300,10 @@
 			"name": "Search position sql & xquery - json format",
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"xquery\": \"(cts:search(fn:doc(), cts:collection-query('transaction')))[position() = 1 to 1]\",\n\t\"sql\": \"select * from instrument limit 1\",\n\t\"format\": \"json\"\n}"
+					"raw": ""
 				},
 				"url": {
 					"raw": "{{queryhost}}/query?sql=select * from position limit 10&format=json&xquery=(cts%3Asearch(%2F%2C%20cts%3Acollection-query('position')))%5Bposition()%20%3D%201%20to%2010%5D",
@@ -385,15 +335,10 @@
 			"name": "Count instrument",
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"xquery\": \"(cts:search(fn:doc(), cts:collection-query('transaction')))[position() = 1 to 1]\",\n\t\"sql\": \"select * from instrument limit 1\",\n\t\"format\": \"json\"\n}"
+					"raw": ""
 				},
 				"url": {
 					"raw": "{{queryhost}}/query?sql=select count(*) as count from instrument&format=xml",
@@ -421,15 +366,10 @@
 			"name": "Search instrument sql",
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"xquery\": \"(cts:search(fn:doc(), cts:collection-query('transaction')))[position() = 1 to 1]\",\n\t\"sql\": \"select * from instrument limit 1\",\n\t\"format\": \"json\"\n}"
+					"raw": ""
 				},
 				"url": {
 					"raw": "{{queryhost}}/query?sql=select * from instrument limit 10&format=xml",
@@ -457,15 +397,10 @@
 			"name": "Search instrument sql - json format",
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"xquery\": \"(cts:search(fn:doc(), cts:collection-query('transaction')))[position() = 1 to 1]\",\n\t\"sql\": \"select * from instrument limit 1\",\n\t\"format\": \"json\"\n}"
+					"raw": ""
 				},
 				"url": {
 					"raw": "{{queryhost}}/query?sql=select * from instrument limit 10&format=json",
@@ -493,15 +428,10 @@
 			"name": "Search instrument sql & xquery",
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"xquery\": \"(cts:search(fn:doc(), cts:collection-query('transaction')))[position() = 1 to 1]\",\n\t\"sql\": \"select * from instrument limit 1\",\n\t\"format\": \"json\"\n}"
+					"raw": ""
 				},
 				"url": {
 					"raw": "{{queryhost}}/query?sql=select * from instrument limit 10&format=xml&xquery=(cts%3Asearch(%2F%2C%20cts%3Acollection-query('instrument')))%5Bposition()%20%3D%201%20to%2010%5D",
@@ -533,15 +463,10 @@
 			"name": "Search instrument sql & xquery - json format",
 			"request": {
 				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"xquery\": \"(cts:search(fn:doc(), cts:collection-query('transaction')))[position() = 1 to 1]\",\n\t\"sql\": \"select * from instrument limit 1\",\n\t\"format\": \"json\"\n}"
+					"raw": ""
 				},
 				"url": {
 					"raw": "{{queryhost}}/query?sql=select * from instrument limit 10&format=json&xquery=(cts%3Asearch(%2F%2C%20cts%3Acollection-query('instrument')))%5Bposition()%20%3D%201%20to%2010%5D",

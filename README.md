@@ -194,7 +194,26 @@ mvn compile exec:java
 
 
 
+The query service is started at 8080 port.
+
+
+
 ## Verification
+
+
+
+Query performance:
+
+```bash
+# Query all transaction
+time curl -X GET 'http://localhost:8080/query?sql=select%20%2A%20from%20transaction&format=json' > /dev/null
+
+# Query all position
+time curl -X GET 'http://localhost:8080/query?sql=select%20%2A%20from%20position&format=json' > /dev/null
+
+# Query all instrument
+time curl -X GET 'http://localhost:8080/query?sql=select%20%2A%20from%20instrument&format=json' > /dev/null
+```
 
 
 
