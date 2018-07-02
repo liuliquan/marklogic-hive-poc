@@ -12,7 +12,7 @@ Postman for verification
 
 Download [MarkLogic Server x64 (AMD64, Intel EM64T) 64-bit Linux RPM](https://developer.marklogic.com/products) and save it into `marklogic` folder.
 
-In `marklogic/Dockerfile`  line 17, make sure the rpm file name is same as the downloaded file, currently it is *MarkLogic-9.0-6.x86_64.rpm*.
+In `marklogic/Dockerfile`  line 24, make sure the rpm file name is same as the downloaded file, currently it is *MarkLogic-9.0-6.x86_64.rpm*.
 
 
 
