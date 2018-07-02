@@ -140,7 +140,7 @@ unzip ~/Downloads/sample-data.zip
 
 
 
-To verify the CSV files are loaded, go to http://localhost:9600/_node/stats/pipelines?pretty , when you see **1430314** events output to "kafka" (Like this: http://take.ms/05guc5), then this load step is done. 
+To verify the CSV files are loaded, go to http://localhost:9600/_node/stats/pipelines?pretty , when you see **1430312** events output to "kafka" (Like this: http://take.ms/4iEUn), then this load step is done. 
 
 
 
@@ -165,12 +165,12 @@ docker exec kafka.local /opt/kafka_2.11-0.10.1.0/bin/connect-standalone.sh /conf
 
 
 
-When you see following log which saying the **`account` topic has offset 7611, the `instrument` and `position` topics both have offset 20000**, then the load is finished:
+When you see following log which saying the **`position` topic has offset 51441, the `instrument` topic has offset 138872, the `transaction` topics both have offset 1239999**, then the load is finished:
 
 ```properties
-INFO Flush - Topic position, Partition 0, Offset 20000, Metadata  (kafka.connect.marklogic.sink.MarkLogicSinkTask:105)
-INFO Flush - Topic instrument, Partition 0, Offset 20000, Metadata  (kafka.connect.marklogic.sink.MarkLogicSinkTask:105)
-INFO Flush - Topic account, Partition 0, Offset 7611, Metadata  (kafka.connect.marklogic.sink.MarkLogicSinkTask:105)
+[2018-07-02 11:00:51,449] INFO Flush - Topic position, Partition 0, Offset 51441, Metadata  (kafka.connect.marklogic.sink.MarkLogicSinkTask:112)
+[2018-07-02 11:00:51,449] INFO Flush - Topic instrument, Partition 0, Offset 138872, Metadata  (kafka.connect.marklogic.sink.MarkLogicSinkTask:112)
+[2018-07-02 11:00:51,449] INFO Flush - Topic transaction, Partition 0, Offset 1239999, Metadata  (kafka.connect.marklogic.sink.MarkLogicSinkTask:112)
 ```
 
 
