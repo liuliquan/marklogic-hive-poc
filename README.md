@@ -128,16 +128,11 @@ docker exec hive.local beeline -u jdbc:hive2://hive.local:10000/default -e "show
 
 Download sample-data.zip from https://drive.google.com/open?id=1oFxiltHnebWTzyk7SbziMSNZrX94Cctr
 
-Unzip it and copy the CSV files to `sample-data` folder. 
+Unzip it to `sample-data` folder. 
 
 ```bash
-# Unzip sample-data.zip
-unzip ~/Downloads/sample-data.zip -d ~/Downloads/sample-data
-
-# Copy CSV files
-cp ~/Downloads/sample-data/Position/*.csv ./sample-data/Position/
-cp ~/Downloads/sample-data/Instrument/*.csv ./sample-data/Instrument/
-cp ~/Downloads/sample-data/Transaction/*.csv ./sample-data/Transaction/
+# With project dir, unzip <path-to-downloaded-sample-data.zip>, eg:
+unzip ~/Downloads/sample-data.zip
 
 # Logstash will then parse the sample CSV files and insert into kafka.
 # The load will take about 5 minutes.
@@ -145,7 +140,7 @@ cp ~/Downloads/sample-data/Transaction/*.csv ./sample-data/Transaction/
 
 
 
-To verify the CSV files are loaded, go to http://localhost:9600/_node/stats/pipelines?pretty , when you see **1368394** events output to "kafka" (Like this: http://take.ms/Judgg), then this load step is done. 
+To verify the CSV files are loaded, go to http://localhost:9600/_node/stats/pipelines?pretty , when you see **1404848** events output to "kafka" (Like this: http://take.ms/bw5Fe), then this load step is done. 
 
 
 
@@ -193,7 +188,8 @@ docker stop kafka.local
 Run:
 
 ```bash
-
+cd query-service
+mvn compile exec:java
 ```
 
 

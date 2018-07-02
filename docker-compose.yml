@@ -37,7 +37,7 @@ services:
     environment:
       - ADVERTISED_HOST=kafka.local
       - ADVERTISED_PORT=9092
-      - KAFKA_HEAP_OPTS=-Xmx1024M
+      - KAFKA_HEAP_OPTS=-Xmx2048M
     depends_on:
       - ml9node1
       - hive
