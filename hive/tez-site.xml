@@ -1,0 +1,14 @@
+<configuration>
+  <property>
+     <name>tez.lib.uris</name>
+     <value>file:///usr/local/apache-tez-0.9.0-bin/share/tez.tar.gz</value>
+  </property>
+  <property>
+     <name>tez.am.container.reuse.enabled</name>
+     <value>true</value>
+  </property>
+  <property>
+     <name>tez.session.am.dag.submit.timeout.secs</name>
+     <value>86400</value>
+  </property>
+</configuration>

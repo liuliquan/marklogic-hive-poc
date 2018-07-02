@@ -1,0 +1,7 @@
+/target/
+/.settings/
+/.project
+/.classpath
+/dependency-reduced-pom.xml
+/.apt_generated/
+/.apt_generated_tests/

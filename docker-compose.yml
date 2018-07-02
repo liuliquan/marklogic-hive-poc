@@ -1,0 +1,60 @@
+version: '2.2'
+services:
+  hive:
+    build: ./hive
+    image: hive:build
+    hostname: hive.local
+    container_name: hive.local
+    expose:
+      - 9083
+      - 10000
+    ports:
+      - 8088:8088
+      - 9083:9083
+      - 10000:10000
+      - 10002:10002
+  ml9node1:
+    build: ./marklogic
+    image: marklogic:build
+    hostname: ml9node1.local
+    container_name: ml9node1.local
+    expose:
+      - 7997
+      - 7998
+      - 7999
+    ports:
+      - 8000:8000
+      - 8001:8001
+      - 8002:8002
+      - 8010:8010
+  kafka:
+    image: spotify/kafka
+    hostname: kafka.local
+    container_name: kafka.local
+    expose:
+      - 9092
+      - 2181
+    environment:
+      - ADVERTISED_HOST=kafka.local
+      - ADVERTISED_PORT=9092
+      - KAFKA_HEAP_OPTS=-Xmx1024M
+    depends_on:
+      - ml9node1
+      - hive
+    volumes:
+      - ./kafka-sinker/target/kafka-sinker-0.0.1.jar:/opt/kafka_2.11-0.10.1.0/libs/kafka-sinker-0.0.1.jar
+      - ./kafka-sinker/config/kafka-connect-standalone.properties:/config/kafka-connect-standalone.properties
+      - ./kafka-sinker/config/kafka-sinker.properties:/config/kafka-sinker.properties
+  logstash:
+    build: ./logstash
+    image: logstash:build
+    hostname: logstash.local
+    container_name: logstash.local
+    ports:
+      - 9600:9600
+    depends_on:
+      - kafka
+    volumes:
+      - ./sample-data/Position:/usr/share/logstash/data/Position
+      - ./sample-data/Instrument:/usr/share/logstash/data/Instrument
+      - ./sample-data/Transaction:/usr/share/logstash/data/Transaction
