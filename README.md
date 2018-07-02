@@ -128,7 +128,7 @@ docker exec hive.local beeline -u jdbc:hive2://hive.local:10000/default -e "show
 
 Download sample-data.zip from https://drive.google.com/open?id=1jYBqIDXN8QT4_C-wg4_X62fNXUE4RfBg
 
-Unzip it to `sample-data` folder. 
+Unzip it to `sample-data` folder.
 
 ```bash
 # With project dir, unzip <path-to-downloaded-sample-data.zip>, eg:
@@ -140,7 +140,7 @@ unzip ~/Downloads/sample-data.zip
 
 
 
-To verify the CSV files are loaded, go to http://localhost:9600/_node/stats/pipelines?pretty , when you see **1404848** events output to "kafka" (Like this: http://take.ms/bw5Fe), then this load step is done. 
+To verify the CSV files are loaded, go to http://localhost:9600/_node/stats/pipelines?pretty , when you see **1430314** events output to "kafka" (Like this: http://take.ms/05guc5), then this load step is done. 
 
 
 
