@@ -131,7 +131,10 @@ Download sample-data.zip from https://drive.google.com/open?id=1oFxiltHnebWTzyk7
 Unzip it and copy the CSV files to `sample-data` folder. 
 
 ```bash
+# Unzip sample-data.zip
 unzip ~/Downloads/sample-data.zip -d ~/Downloads/sample-data
+
+# Copy CSV files
 cp ~/Downloads/sample-data/Position/*.csv ./sample-data/Position/
 cp ~/Downloads/sample-data/Instrument/*.csv ./sample-data/Instrument/
 cp ~/Downloads/sample-data/Transaction/*.csv ./sample-data/Transaction/
@@ -185,15 +188,11 @@ docker stop kafka.local
 
 
 
+## Start Query Service
+
+
+
 ## Verification
-
-Verify data are stored in 3 tiers by checking the storage size. Use `admin/admin` to login:
-
-Tier1: http://localhost:8002/manage/v2/forests/tier1-0001?view=storage&format=html , should be like [this](http://take.ms/vYQHc)
-
-Tier2: http://localhost:8002/manage/v2/forests/tier2-0001?view=storage&format=html , should be like [this](http://take.ms/YL01Z9)
-
-Tier3: http://localhost:8002/manage/v2/forests/tier3-0001?view=storage&format=html , should be like [this](http://take.ms/xNbPx)
 
 
 
@@ -217,13 +216,7 @@ time ./marklogic/query.sh position tier3
 
 Import `test/tiers-poc.postman_collection.json` and  `test/tiers-poc.postman_environment.json` into Postman, you can do following:
 
-- Count/Search `account` records
-- Count/Search `account` records in specific Tier1/Tier2/Tier3
+- Count/Search `transaction` records
 - Count/Search `instrument` records
-- Count/Search `instrument` records in specific Tier1/Tier2/Tier3
 - Count/Search `position` records
-- Count/Search `position` records in specific Tier1/Tier2/Tier3
 
-
-
-Sample Postman screenshot which searches `position` records in Tier3: http://take.ms/PVBf8
