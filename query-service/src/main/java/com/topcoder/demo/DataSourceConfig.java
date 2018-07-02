@@ -43,7 +43,7 @@ public class DataSourceConfig {
         return httpclient;
     }
 
-    @Bean
+    @Bean(destroyMethod = "")
     public DataSource hiveDataSource() {
         BasicDataSource ds = new BasicDataSource();
 
