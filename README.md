@@ -126,7 +126,7 @@ docker exec hive.local beeline -u jdbc:hive2://hive.local:10000/default -e "show
 
 ## Load CSV Records into Kafka
 
-Download sample-data.zip from https://drive.google.com/open?id=1oFxiltHnebWTzyk7SbziMSNZrX94Cctr
+Download sample-data.zip from https://drive.google.com/open?id=1jYBqIDXN8QT4_C-wg4_X62fNXUE4RfBg
 
 Unzip it to `sample-data` folder. 
 
