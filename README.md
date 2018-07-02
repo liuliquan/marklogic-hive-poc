@@ -144,7 +144,7 @@ To verify the CSV files are loaded, go to http://localhost:9600/_node/stats/pipe
 
 
 
-**TIP**: after this step, the logstash container is useless now, you can stop them to save cpu/memory resources:
+**TIP**: after this step, the logstash container is useless now, you can stop it to save cpu/memory resources:
 
 ```bash
 docker stop logstash.local
@@ -175,7 +175,7 @@ When you see following log which saying the **`position` topic has offset 51441,
 
 
 
-**TIP**: after this step, the kafka container is useless now, you can stop them to save cpu/memory resources:
+**TIP**: after this step, the kafka container is useless now, you can stop it to save cpu/memory resources:
 
 ```bash
 docker stop kafka.local
