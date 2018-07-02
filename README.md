@@ -190,27 +190,15 @@ docker stop kafka.local
 
 ## Start Query Service
 
+Run:
+
+```bash
+
+```
+
 
 
 ## Verification
-
-
-
-Verify the query performance:
-
-```bash
-time ./marklogic/query.sh account tier1
-time ./marklogic/query.sh account tier2
-time ./marklogic/query.sh account tier3
-
-time ./marklogic/query.sh instrument tier1
-time ./marklogic/query.sh instrument tier2
-time ./marklogic/query.sh instrument tier3
-
-time ./marklogic/query.sh position tier1
-time ./marklogic/query.sh position tier2
-time ./marklogic/query.sh position tier3
-```
 
 
 

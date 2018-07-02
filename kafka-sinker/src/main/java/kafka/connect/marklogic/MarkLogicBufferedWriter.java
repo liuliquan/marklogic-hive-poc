@@ -46,7 +46,7 @@ public class MarkLogicBufferedWriter extends MarkLogicWriter implements Writer{
         hiveWriter = new HiveWriter(config.get(MarkLogicSinkConfig.HIVE_THRIFT_URL), batchSize, maxRetires, retryBackoff);
         hiveWriter.start();
 
-        batcher.withBatchSize(batchSize).withThreadCount(1).onBatchSuccess(batch -> {
+        batcher.withBatchSize(batchSize).withThreadCount(3).onBatchSuccess(batch -> {
             logger.info("MarkLogic: written total {} records", batch.getJobWritesSoFar());
         });
 
