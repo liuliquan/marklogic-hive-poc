@@ -4,7 +4,7 @@ Java 1.8
 
 Maven 3
 
-Docker (**The Docker host machine should be with 16G memory or more**)
+Docker (**The Docker host machine should have 16G memory or more**)
 
 Postman for verification
 
