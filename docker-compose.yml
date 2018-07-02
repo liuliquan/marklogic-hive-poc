@@ -44,7 +44,7 @@ services:
     volumes:
       - ./kafka-sinker/target/kafka-sinker-0.0.1.jar:/opt/kafka_2.11-0.10.1.0/libs/kafka-sinker-0.0.1.jar
       - ./kafka-sinker/config/kafka-connect-standalone.properties:/config/kafka-connect-standalone.properties
-      - ./kafka-sinker/config/kafka-sinker.properties:/config/kafka-sinker.properties
+      - ./kafka-sinker/config/kafka-sink.properties:/config/kafka-sink.properties
   logstash:
     build: ./logstash
     image: logstash:build

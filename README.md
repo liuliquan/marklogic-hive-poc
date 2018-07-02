@@ -48,7 +48,7 @@ docker exec hive.local cat /tmp/root/hive.log | grep TezSession
 
 
 
-When you see something like following about Tez session initialized, the containers are all started:
+When you see something like following about Tez session created, the containers are all started:
 
 ```properties
 2018-07-02T06:45:41,950  INFO [main] tez.TezSessionPoolManager: Created new tez session for queue: default with session id: 704d121b-70a3-4ddc-a024-fdb7fcf6e3e1
@@ -83,7 +83,7 @@ Run:
 ```bash
 ./marklogic/setup.sh
 
-# The setup takes about 1 minute. It initializes the MarkLogic Servers servers, creates a new database and SQL views.
+# The setup takes about 1 minute. It initializes the MarkLogic Server, creates a new database and SQL views.
 ```
 
 You will see output like following, note the "*curl: (52) Empty reply from server*" message is expected as the server is initializing:
@@ -109,22 +109,48 @@ Setup done
 
 
 
-## Load CSV Records into Kafka
+## Create Hive Tables
 
-Run:
+Run
 
 ```bash
-docker cp ./sample-data/Transaction logstash.local:/usr/share/logstash/data/Transaction
-docker cp ./sample-data/Instrument logstash.local:/usr/share/logstash/data/Instrument
-docker cp ./sample-data/Position logstash.local:/usr/share/logstash/data/Position
+# Create Hive tables
+docker exec hive.local beeline -u jdbc:hive2://hive.local:10000/default -f /tmp/tables.sql
 
-# Logstash will parse the sample csv files and insert into kafka
-# The load will take about 1 minute.
+# Verify instrument/position/transaction tables created
+docker exec hive.local beeline -u jdbc:hive2://hive.local:10000/default -e "show tables"
+
 ```
 
 
 
-To verify the csv files are loaded, go to http://localhost:9600/_node/stats/pipelines?pretty , when you see **1368394** events output to "kafka" (Like this: http://take.ms/n37pc), then this load step is done. 
+## Load CSV Records into Kafka
+
+Download sample-data.zip from https://drive.google.com/open?id=1oFxiltHnebWTzyk7SbziMSNZrX94Cctr
+
+Unzip it and copy the CSV files to `sample-data` folder. 
+
+```bash
+unzip ~/Downloads/sample-data.zip -d ~/Downloads/sample-data
+cp ~/Downloads/sample-data/Position/*.csv ./sample-data/Position/
+cp ~/Downloads/sample-data/Instrument/*.csv ./sample-data/Instrument/
+cp ~/Downloads/sample-data/Transaction/*.csv ./sample-data/Transaction/
+
+# Logstash will then parse the sample CSV files and insert into kafka.
+# The load will take about 5 minutes.
+```
+
+
+
+To verify the CSV files are loaded, go to http://localhost:9600/_node/stats/pipelines?pretty , when you see **1368394** events output to "kafka" (Like this: http://take.ms/Judgg), then this load step is done. 
+
+
+
+**TIP**: after this step, the logstash container is useless now, you can stop them to save cpu/memory resources:
+
+```bash
+docker stop logstash.local
+```
 
 
 
@@ -133,10 +159,10 @@ To verify the csv files are loaded, go to http://localhost:9600/_node/stats/pipe
 Run:
 
 ```bash
-docker exec kafka.local /opt/kafka_2.11-0.10.1.0/bin/connect-standalone.sh /config/kafka-connect-standalone.properties /config/kafka-sinker.properties
+docker exec kafka.local /opt/kafka_2.11-0.10.1.0/bin/connect-standalone.sh /config/kafka-connect-standalone.properties /config/kafka-sink.properties
 
 # The connector will consume kafka records and insert into MarkLogic
-# The load will take about 2 minutes.
+# The load will take about 10 minutes.
 ```
 
 
@@ -151,10 +177,9 @@ INFO Flush - Topic account, Partition 0, Offset 7611, Metadata  (kafka.connect.m
 
 
 
-**TIP**: after this step, the logstash and kafka containers are useless now, you can stop them to save cpu/memory resources:
+**TIP**: after this step, the kafka container is useless now, you can stop them to save cpu/memory resources:
 
 ```bash
-docker stop logstash.local
 docker stop kafka.local
 ```
 
