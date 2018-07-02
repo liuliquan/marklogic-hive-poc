@@ -206,13 +206,22 @@ Query performance:
 
 ```bash
 # Query all transaction
-time curl -X GET 'http://localhost:8080/query?sql=select%20%2A%20from%20transaction&format=json' > /dev/null
+time curl -X GET "http://localhost:8080/query?sql=select%20%2A%20from%20transaction&format=json" > /dev/null
 
 # Query all position
-time curl -X GET 'http://localhost:8080/query?sql=select%20%2A%20from%20position&format=json' > /dev/null
+time curl -X GET "http://localhost:8080/query?sql=select%20%2A%20from%20position&format=json" > /dev/null
 
 # Query all instrument
-time curl -X GET 'http://localhost:8080/query?sql=select%20%2A%20from%20instrument&format=json' > /dev/null
+time curl -X GET "http://localhost:8080/query?sql=select%20%2A%20from%20instrument&format=json" > /dev/null
+
+# SELECT * FROM POSITION WHERE BusinessDate > '2017-01-01' AND BusinessDate < '2018-12-31'
+time curl -X GET "http://localhost:8080/query?sql=SELECT%20*%20FROM%20POSITION%20WHERE%20BusinessDate%20%3E%20'2017-01-01'%20AND%20BusinessDate%20%3C%20'2018-12-31'" > /dev/null
+
+# SELECT * FROM TRANSACTION WHERE TradeDate > '2017-01-01' AND TradeDate < '2018-12-31'
+time curl -X GET "http://localhost:8080/query?sql=SELECT%20*%20FROM%20TRANSACTION%20WHERE%20TradeDate%20%3E%20'2017-01-01'%20AND%20TradeDate%20%3C%20'2018-12-31'" > /dev/null
+
+# SELECT * FROM POSITION INNER JOIN INSTRUMENT ON POSITION.InstrumentId=INSTRUMENT.InstrumentId WHERE INSTRUMENT.AddedDate > '2001-01-01' AND INSTRUMENT.AddedDate < '2018-12-31'
+time curl -X GET "http://localhost:8080/query?sql=SELECT%20*%20FROM%20POSITION%20INNER%20JOIN%20INSTRUMENT%20ON%20POSITION.InstrumentId%3DINSTRUMENT.InstrumentId%20WHERE%20INSTRUMENT.AddedDate%20%3E%20'2001-01-01'%20AND%20INSTRUMENT.AddedDate%20%3C%20'2018-12-31'" > /dev/null
 ```
 
 
