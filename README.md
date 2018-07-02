@@ -111,7 +111,7 @@ Setup done
 
 ## Create Hive Tables
 
-Run
+Run:
 
 ```bash
 # Create Hive tables
