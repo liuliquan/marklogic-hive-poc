@@ -118,7 +118,7 @@ Run:
 docker exec hive.local beeline -u jdbc:hive2://hive.local:10000/default -f /tmp/tables.sql
 
 # Verify instrument/position/transaction tables created
-docker exec hive.local beeline -u jdbc:hive2://hive.local:10000/default -e "show tables"
+docker exec hive.local beeline -u jdbc:hive2://hive.local:10000/default -e "show tables;"
 
 ```
 
